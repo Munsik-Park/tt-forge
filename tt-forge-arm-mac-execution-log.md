@@ -1,0 +1,64 @@
+# tt-forge 맥북(M3, ARM) 환경 실행 시도 및 문제점 로그
+
+## 1. 로컬(ARM) 환경에서 Python 가상환경 및 패키지 설치
+- Python venv 생성 및 활성화
+- `pip install torch torchvision timm pillow` 등 패키지 설치
+- `pip install`로 forge, tvm wheel(x86_64용) 설치 시도  
+  → **오류:** "is not a supported wheel on this platform" (ARM에서 x86_64 wheel 설치 불가)
+
+## 2. Docker Desktop 설치 및 실행
+- Docker Desktop(Mac ARM용) 설치 및 실행
+- **컨테이너 실행 명령어:**
+  ```bash
+  docker run --platform linux/amd64 -it -v $(pwd):/workspace ghcr.io/tenstorrent/tt-forge-fe/tt-forge-fe-ird-ubuntu-22-04
+  ```
+  - `--platform linux/amd64`: x86_64 에뮬레이션 모드로 실행
+  - `-v $(pwd):/workspace`: 현재 디렉토리를 컨테이너의 /workspace에 마운트
+  → **경고:** "The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8)"
+- 컨테이너 내에서 `/workspace`로 소스 마운트
+
+## 3. 컨테이너 내에서 Python 가상환경 생성 및 활성화
+- 가상환경 생성 및 활성화 방법:
+  ```bash
+  python3 -m venv tt-forge-env
+  source tt-forge-env/bin/activate
+  ```
+- (가상환경 활성화 후) 필요한 패키지 설치:
+  ```bash
+  pip install torch torchvision timm pillow
+  pip install https://github.com/tenstorrent/tt-forge/releases/download/0.1.0.dev20250422214451/forge-0.1.0.dev20250422214451-cp310-cp310-linux_x86_64.whl
+  pip install https://github.com/tenstorrent/tt-forge/releases/download/0.1.0.dev20250422214451/tvm-0.1.0.dev20250422214451-cp310-cp310-linux_x86_64.whl
+  ```
+- **의존성 충돌:** numpy, timm, decorator, ml-dtypes, jax, jaxlib 등 버전 불일치
+- forge가 요구하는 버전으로 재설치 시도  
+  → **여전히 의존성 충돌**
+
+## 4. JAX/JAXLIB 관련 문제
+- 데모 실행 시 `import forge`에서 내부적으로 `jax` import
+- **오류:**  
+  ```
+  RuntimeError: This version of jaxlib was built using AVX instructions, which your CPU and/or operating system do not support.
+  ```
+  - x86_64(AVX) 명령어 미지원 환경(ARM, 또는 AVX 없는 x86)에서는 실행 불가
+
+## 5. x86_64 에뮬레이션 모드로 Docker 실행
+- 위의 컨테이너 실행 명령어와 동일하게 실행
+- 동일하게 forge, tvm, jax 등 설치 및 데모 실행
+- **동일 오류:**  
+  ```
+  RuntimeError: This version of jaxlib was built using AVX instructions, which your CPU and/or operating system do not support.
+  ```
+  - 에뮬레이션 환경에서도 실제 하드웨어가 AVX를 지원하지 않으면 실행 불가
+
+---
+
+## 결론 및 요약
+
+- **문제점:**  
+  - forge 패키지와 그 의존성(jax, jaxlib 등)이 AVX 명령어를 요구
+  - ARM 맥북(M1/M2/M3) 및 AVX 미지원 x86 환경에서는 공식 데모 실행 불가
+  - x86_64(AVX 지원) 리눅스 환경에서만 정상 실행 가능
+
+- **해결책:**  
+  - x86_64(AVX 지원) 리눅스 PC/서버/클라우드 환경에서 실행
+  - ARM/AVX 미지원 환경용 forge/jax 빌드가 필요 
