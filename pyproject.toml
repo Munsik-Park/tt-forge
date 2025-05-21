@@ -1,5 +1,6 @@
 [project]
 name = "forge"
+version = "0.1.0"
 description = "AI/ML framework for Tenstorrent devices"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -15,3 +16,6 @@ classifiers = [
   "Intended Audience :: Science/Research",
   "Topic :: Scientific/Engineering :: Artificial Intelligence"
 ]
+
+[tool.setuptools.dynamic]
+version = {file = ".version"}

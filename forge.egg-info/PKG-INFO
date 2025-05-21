@@ -1,0 +1,539 @@
+Metadata-Version: 2.4
+Name: forge
+Version: 0.1.0
+Summary: AI/ML framework for Tenstorrent devices
+Author-email: Tenstorrent <info@tenstorrent.com>
+License: 
+                                         Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright 2025 Tenstorrent AI ULC
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+        
+        ---------------------------------------------------------------------------
+        
+Keywords: forge,machine learning,tenstorrent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: LICENSE_understanding.txt
+Dynamic: license-file
+
+<div align="center">
+
+<h1>
+
+[Buy Hardware](https://tenstorrent.com/cards/) | [Discord](https://discord.gg/tenstorrent)
+
+</h1>
+<picture>
+  <img alt="Logo" src="docs/public/images/tt_refresh_forge_w_icon-01.png" height="250">
+</picture>
+
+</div>
+<br>
+
+TT-Forge is Tenstorrent's MLIR-based compiler. It integrates into various compiler technologies from AI/ML frameworks, to both enable running models and create custom kernel generation. We are currently still in developer preview for early adopters to check out what Tenstorrent has built and give it a try.
+
+-----
+# Quick Links
+- [Getting Started / How to Run a Model](docs/src/getting-started.md)
+- [Interactive Tenstorrent Software Diagram](#interactive-tenstorrent-sofware-architecture-diagram)
+- [tt-forge-fe](https://github.com/tenstorrent/tt-forge-fe)
+- [tt-torch](https://github.com/tenstorrent/tt-torch)
+- [tt-xla](https://github.com/tenstorrent/tt-xla)
+- [tt-mlir](https://github.com/tenstorrent/tt-mlir)
+- [tt-metal](https://github.com/tenstorrent/tt-metal)
+- [tt-tvm](https://github.com/tenstorrent/tt-tvm)
+
+-----
+# What is this Repo?
+This repository is the central hub for the tt-forge compiler project, bringing together its various sub-projects into a cohesive product. Here, you'll find releases, demos, model support, roadmaps, and other key resources as the project evolves. Currently in early developer preview, we’ll be providing frequent updates to keep you informed on the latest developments. Please file any issues with questions or feedback you may have.
+
+# Getting Started Guide
+See our individual front end documentations in the [Front end](#current-ai-framework-front-end-projects) section to get started running some tests.
+
+# Project Goals
+- Provide abstraction of many different frontend frameworks
+- Generically compile many kinds of model architectures without modification and with good performance
+- Abstract all Tenstorrent device architectures
+
+# Project Overview
+
+tt-forge is composed of various projects ranging from Frontends to support popular third-party AI Frameworks, MLIR compiler project, performance optimizations and tools to support the project.
+tt-forge lowers to our tt-metalium project providing additional functionality to our AI Sofware ecosystem.
+
+![Tenstorrent Software Overview](docs/public/images/tt-sw-overview.png)
+
+### Interactive Tenstorrent Sofware Architecture Diagram
+Overview of Tenstorrent's Opensource AI software ecosystem.
+Click on components to navigate to their repositories:
+
+```mermaid
+flowchart TD
+    %% Define styles for the diagram with improved contrast and font size
+    classDef frameworks fill:#f9d6d2,stroke:#e05d44,stroke-width:2px,color:#000000,font-size:14px,font-weight:bold
+    classDef frontends fill:#fff3cd,stroke:#ffc107,stroke-width:2px,color:#000000,font-size:14px,font-weight:bold
+    classDef compiler fill:#d1e7dd,stroke:#198754,stroke-width:2px,color:#000000,font-size:14px,font-weight:bold
+    classDef runtime fill:#cfe2ff,stroke:#0d6efd,stroke-width:2px,color:#000000,font-size:14px,font-weight:bold
+    classDef system fill:#e2e3e5,stroke:#6c757d,stroke-width:2px,color:#000000,font-size:14px,font-weight:bold
+    classDef software fill:#d3d3ff,stroke:#6610f2,stroke-width:2px,color:#000000,font-size:14px,font-weight:bold
+    classDef hardware fill:#f8f9fa,stroke:#212529,stroke-width:2px,color:#000000,font-size:14px,font-weight:bold
+    classDef invisible opacity:0,fill:none,stroke:none
+
+    %% Top level layout with invisible container to center frameworks
+    subgraph TopLevel[" "]
+        direction LR
+
+        %% Left spacer (invisible)
+        LeftSpacer[" "]:::invisible
+
+        %% Center container for frameworks
+        subgraph FrameworksContainer[" "]
+            direction TB
+            %% Top level frameworks
+            subgraph Frameworks["<span style='font-size:16px;font-weight:bold'>Frameworks</span>"]
+                direction LR
+                JAX("<span style='font-size:14px;font-weight:bold'>JAX</span>")
+                ONX("<span style='font-size:14px;font-weight:bold'>ONNX</span>")
+                PYTORCH("<span style='font-size:14px;font-weight:bold'>PyTorch</span>")
+                TF("<span style='font-size:14px;font-weight:bold'>TensorFlow</span>")
+            end
+
+            %% Front-ends
+            subgraph FrontEnds["<span style='font-size:16px;font-weight:bold'>Front Ends</span>"]
+                direction LR
+                %% Add extra spacing between frontend components
+                TT_TORCH("<span style='font-size:14px;font-weight:bold'>tt-torch</span>")
+                TT_FORGE_FE("<span style='font-size:14px;font-weight:bold'>tt-forge-FE</span>")
+                TT_XLA("<span style='font-size:14px;font-weight:bold'>tt-xla</span>")
+            end
+        end
+
+        %% Right spacer (invisible)
+        RightSpacer[" "]:::invisible
+    end
+
+    %% Style invisible containers
+    TopLevel:::invisible
+    FrameworksContainer:::invisible
+
+    %% Compiler sections side by side
+    subgraph CompilerLayer["<span style='font-size:16px;font-weight:bold'>Compiler Layer</span>"]
+        %% tt-MLIR Compiler section
+        subgraph TTMLIR["<span style='font-size:16px;font-weight:bold'>tt-MLIR Compiler</span>"]
+            TTIR("<span style='font-size:14px;font-weight:bold'>TT-IR</span>")
+            STABLEHLO("<span style='font-size:14px;font-weight:bold'>StableHLO-IR</span>")
+            PYKERNEL("<span style='font-size:14px;font-weight:bold'>PyKernel</span>")
+            %% Graph Passes - using hexagon shape
+            GRAPH_PASSES{{"<span style='font-size:14px;font-weight:bold'>Graph Passes</span>"}}
+            TTMETAL_IR("<span style='font-size:14px;font-weight:bold'>TT-Metal-IR</span>")
+            TTNN("<span style='font-size:14px;font-weight:bold'>TTNN-IR</span>")
+            TTKERNEL("<span style='font-size:14px;font-weight:bold'>TTKernel-IR</span>")
+
+            %% Connect PyKernel to Graph Passes
+            PYKERNEL --> GRAPH_PASSES
+
+            %% Connect Graph Passes to IRs
+            GRAPH_PASSES --> TTKERNEL
+            GRAPH_PASSES --> TTNN
+            GRAPH_PASSES --> TTMETAL_IR
+        end
+
+        %% Compiler Tools section with vertical layout
+        subgraph CompilerTools["<span style='font-size:16px;font-weight:bold'>Compiler Tools</span>"]
+            direction TB
+            TTMLIROPT("<span style='font-size:14px;font-weight:bold'>ttmlir-opt</span>")
+            TTNNSTANDALONE("<span style='font-size:14px;font-weight:bold'>ttnn-standalone</span>")
+            TTEXPLORER("<span style='font-size:14px;font-weight:bold'>tt-explorer</span>")
+        end
+    end
+
+    %% Set direction for compiler sections to be side by side
+    CompilerLayer:::none
+    TTMLIR --- CompilerTools
+
+    %% TT-Metalium section with Tools
+    subgraph MetaliumLayer["<span style='font-size:16px;font-weight:bold'>Metalium Layer</span>"]
+        %% TT-Metalium section
+        subgraph TTMETALIUM["<span style='font-size:16px;font-weight:bold'>TT-Metalium</span>"]
+            TTNN_HW("<span style='font-size:14px;font-weight:bold'>TTNN</span>")
+            TTMETAL("<span style='font-size:14px;font-weight:bold'>TTMetal</span>")
+
+            %% Connect TTNN to TTMetal within TT-Metalium
+            TTNN_HW --> TTMETAL
+        end
+
+        %% Metalium Tools section with vertical layout
+        subgraph MetaliumTools["<span style='font-size:16px;font-weight:bold'>Metalium Tools</span>"]
+            direction TB
+            TRACY("<span style='font-size:14px;font-weight:bold'>tracy</span>")
+            TTNPE("<span style='font-size:14px;font-weight:bold'>tt-npe</span>")
+            TTNNVISUALIZER("<span style='font-size:14px;font-weight:bold'>ttnn-visualizer</span>")
+        end
+    end
+
+    %% Set direction for Metalium sections to be side by side
+    MetaliumLayer:::none
+    TTMETALIUM --- MetaliumTools
+
+    %% LLK outside of TT-Metalium
+    LLK("<span style='font-size:14px;font-weight:bold'>LLK</span>")
+
+    %% System Tools and System Software sections side by side
+    subgraph SystemLayer["<span style='font-size:16px;font-weight:bold'>System Layer</span>"]
+        %% System Tools section
+        subgraph SystemTools["<span style='font-size:16px;font-weight:bold'>System Tools</span>"]
+            TTSMI("<span style='font-size:14px;font-weight:bold'>tt-smi</span>")
+            LUWEN("<span style='font-size:14px;font-weight:bold'>luwen</span>")
+            TTTOPOLOGY("<span style='font-size:14px;font-weight:bold'>tt-topology</span>")
+        end
+
+        %% System Software section
+        subgraph SystemSoftware["<span style='font-size:16px;font-weight:bold'>System Software</span>"]
+            UMD("<span style='font-size:14px;font-weight:bold'>UMD</span>")
+            KMD("<span style='font-size:14px;font-weight:bold'>KMD</span>")
+        end
+    end
+
+    %% Set direction for system sections to be side by side
+    SystemLayer:::none
+
+    %% Hardware section
+    subgraph Hardware["<span style='font-size:16px;font-weight:bold'>Hardware</span>"]
+        WORMHOLE("<span style='font-size:14px;font-weight:bold'>Wormhole</span>")
+        BLACKHOLE("<span style='font-size:14px;font-weight:bold'>Blackhole</span>")
+    end
+
+    %% Connect TTMetal to LLK, LLK to System Software, and System Layer to Hardware
+    TTMETAL --> LLK
+    LLK --> SystemSoftware
+    SystemLayer --> Hardware
+
+    %% Connect frameworks to front-ends with longer arrows
+    ONX -.-> TT_TORCH
+    ONX -.-> TT_FORGE_FE
+    JAX -.-> TT_XLA
+    PYTORCH -.-> TT_TORCH
+    PYTORCH -.-> TT_FORGE_FE
+    TF -.-> TT_FORGE_FE
+
+    %% Connect front-ends to tt-MLIR Compiler
+    TT_TORCH --> STABLEHLO
+    TT_XLA --> STABLEHLO
+    TT_FORGE_FE --> TTIR
+
+    %% Connect tt-MLIR Compiler components
+    STABLEHLO --> TTIR
+    TTIR --> GRAPH_PASSES
+
+    %% Connect IRs to hardware
+    TTNN --> TTNN_HW
+    TTMETAL_IR --> TTMETAL
+    TTKERNEL --> TTMETALIUM
+
+    %% Apply styles
+    class ONX,JAX,PYTORCH,TF frameworks
+    class TT_TORCH,TT_XLA,TT_FORGE_FE frontends
+    class TTIR,TTKERNEL,TTNN,TTMETAL_IR,GRAPH_PASSES,PYKERNEL,TTMLIROPT,TTNNSTANDALONE,TTEXPLORER compiler
+    class TTMETAL,TTNN_HW,LLK,TRACY,TTNPE,TTNNVISUALIZER runtime
+    class TTSMI,LUWEN,TTTOPOLOGY system
+    class UMD,KMD software
+    class WORMHOLE,BLACKHOLE hardware
+    classDef none opacity:0,fill:none,stroke:none
+    class LeftSpacer,RightSpacer,TopLevel,FrameworksContainer invisible
+
+    %% Add clickable URLs to frontend components
+    click TT_XLA "https://github.com/tenstorrent/tt-xla" "tt-xla GitHub Repository" _blank
+    click TT_TORCH "https://github.com/tenstorrent/tt-torch" "tt-torch GitHub Repository" _blank
+    click TT_FORGE_FE "https://github.com/tenstorrent/tt-forge-fe" "tt-forge-fe GitHub Repository" _blank
+
+    %% Add clickable URLs to IR components
+    click TTKERNEL "https://github.com/tenstorrent/tt-mlir/tree/main/lib/Dialect/TTKernel/IR" "TTKernel-IR GitHub Repository" _blank
+    click TTIR "https://github.com/tenstorrent/tt-mlir/tree/main/lib/Dialect/TTIR/IR" "TT-IR GitHub Repository" _blank
+    click TTMETAL_IR "https://github.com/tenstorrent/tt-mlir/tree/main/lib/Dialect/TTMetal/IR" "TT-Metal-IR GitHub Repository" _blank
+    click TTNN "https://github.com/tenstorrent/tt-mlir/tree/main/lib/Dialect/TTNN/IR" "TTNN-IR GitHub Repository" _blank
+    click PYKERNEL "https://github.com/tenstorrent/tt-mlir/tree/main/python/pykernel" "PyKernel GitHub Repository" _blank
+    click STABLEHLO "https://openxla.org/stablehlo/spec" "StableHLO Specification" _blank
+
+    %% Add clickable URLs to System Software components
+    click UMD "https://github.com/tenstorrent/tt-umd" "UMD GitHub Repository" _blank
+    click KMD "https://github.com/tenstorrent/tt-kmd" "KMD GitHub Repository" _blank
+
+    %% Add clickable URLs to System Tools components
+    click TTSMI "https://github.com/tenstorrent/tt-smi" "tt-smi GitHub Repository" _blank
+    click LUWEN "https://github.com/tenstorrent/luwen" "luwen GitHub Repository" _blank
+    click TTTOPOLOGY "https://github.com/tenstorrent/tt-kmd" "tt-topology GitHub Repository" _blank
+
+    %% Add clickable URLs to TT-Metalium components
+    click TTMETAL "https://github.com/tenstorrent/tt-metal" "TTMetal GitHub Repository" _blank
+    click TTNN_HW "https://github.com/tenstorrent/tt-metal/tree/main/ttnn" "TTNN GitHub Repository" _blank
+    click LLK "https://github.com/tenstorrent/tt-llk" "LLK GitHub Repository" _blank
+
+    %% Add clickable URLs to Metalium Tools components
+    click TRACY "https://github.com/tenstorrent/tt-metal/tree/main/ttnn/tracy" "tracy GitHub Repository" _blank
+    click TTNPE "https://github.com/tenstorrent/tt-npe" "tt-npe GitHub Repository" _blank
+    click TTNNVISUALIZER "https://github.com/tenstorrent/ttnn-visualizer" "ttnn-visualizer GitHub Repository" _blank
+
+    %% Add clickable URLs to Compiler Tools components
+    click TTEXPLORER "https://github.com/tenstorrent/tt-mlir/tree/main/tools/explorer" "tt-explorer GitHub Repository" _blank
+    click TTNNSTANDALONE "https://github.com/tenstorrent/tt-mlir/tree/main/tools/ttnn-standalone" "ttnn-standalone GitHub Repository" _blank
+    click TTMLIROPT "https://github.com/tenstorrent/tt-mlir/tree/main/tools/ttmlir-opt" "ttmlir-opt GitHub Repository" _blank
+
+    %% Add clickable URLs to Hardware components
+    click WORMHOLE "https://tenstorrent.com/hardware/wormhole" "Wormhole Hardware Product Page" _blank
+    click BLACKHOLE "https://tenstorrent.com/hardware/blackhole" "Blackhole Hardware Product Page" _blank
+```
+
+### Current AI Framework Front End Projects
+- [tt-forge-fe](https://github.com/tenstorrent/tt-forge-fe)
+  - A TVM based graph compiler designed to optimize and transform computational graphs for deep learning models. Supports ingestion of PyTorch, ONNX, TensorFlow, PaddlePaddle and similar ML frameworks via TVM ([`tt-tvm`](https://github.com/tenstorrent/tt-tvm)).
+  - See [docs pages](https://docs.tenstorrent.com/tt-forge-fe/getting-started.html) for an overview and getting started guide.
+
+- [tt-torch](https://github.com/tenstorrent/tt-torch)
+
+  - A MLIR-native, open-source, PyTorch 2.X and torch-mlir based front-end. It provides stableHLO (SHLO) graphs to `tt-mlir`. Supports ingestion of PyTorch models via PT2.X compile and ONNX models via torch-mlir (ONNX->SHLO)
+  - See [docs pages](https://docs.tenstorrent.com/tt-torch) for an overview and getting started guide.
+
+- [`tt-xla`](https://github.com/tenstorrent/tt-xla)
+  - Leverages a PJRT interface to integrate JAX (and in the future other frameworks), `tt-mlir` and Tenstorrent hardware. Supports ingestion of JAX models via jit compile, providing StableHLO (SHLO) graph to `tt-mlir` compiler
+  - See [README](https://github.com/tenstorrent/tt-xla/blob/main/README.md) for an overview and getting started guide.
+
+
+## [tt-mlir](https://github.com/tenstorrent/tt-mlir) Project
+
+At it's core `tt-mlir` is our compiler that is interfacing with tt-metalium our opens source low level AI Hardware SDK. `tt-mlir` provides a solution for optimizing machine learning and other compute workloads for all tenstorrent hardware. `tt-mlir` bridges the gap between all different ML Frameworks and Tenstorrent Hardware. `tt-mlir` is broken into different dialects:
+
+- TTIR Dialect - Our common IR that can then be lowered into multiple different backends
+
+- TTNN Dialect: Our entry point into the TTNN Library of Ops
+
+- TTMetalium Dialect: Our entry point into directly accessing tt-metalium kernels.
+
+The compiler employs various optimization passes, including layout transformation, operation fusing, decomposition, and sharding, ensuring the efficient lowering to the target dialect.​
+
+### `tt-mlir` tools and capabilities
+
+- ttmlir-opt – tool is used to run the `tt-mlir` compiler passes on a .mlir source files and is central to developing and testing the compiler.​
+
+- ttmlir-translate - ttmlir-translate allows us to ingest something (e.g., code) into MLIR compiler, and produce something (e.g., executable binary, or even code again) from MLIR compiler.​
+
+- ttrt – is a standalone runtime tool that can inspect and run compiler executable files without front-end.​
+
+- tt-explorer - It provides a “Human-In-Loop” interface such that the compiler results can be actively tuned and understood by the person compiling the model.​
+
+- ttnn-standalone - post-compile tuning/debugging tool for C++ TTNN generated code.
+
+
+-----
+# Related Tenstorrent Projects
+- [TT-Forge-FE](https://github.com/tenstorrent/tt-forge-fe)
+- [tt-xla](https://github.com/tenstorrent/tt-xla)
+- [tt-torch](https://github.com/tenstorrent/tt-torch)
+- [tt-mlir](https://github.com/tenstorrent/tt-mlir)
+- [tt-Metalium](https://github.com/tenstorrent/tt-metal)
+- [tt-tvm](https://github.com/tenstorrent/tt-tvm)
+
+
+### Tenstorrent Bounty Program Terms and Conditions
+This repo is a part of Tenstorrent’s bounty program. If you are interested in helping to improve tt-forge, please make sure to read the [Tenstorrent Bounty Program Terms and Conditions](https://docs.tenstorrent.com/bounty_terms.html) before heading to the issues tab. Look for the issues that are tagged with both “bounty” and difficulty level!
